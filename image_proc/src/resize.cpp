@@ -53,7 +53,7 @@ ResizeNode::ResizeNode(const rclcpp::NodeOptions & options)
 {
   auto qos_profile = getTopicQosProfile(this, "image/image_raw");
   // Create image pub
-  pub_image_ = image_transport::create_camera_publisher(this, "resize/image_raw", qos_profile);
+  pub_image_ = image_transport::create_camera_publisher(this, "resize/image_raw", rmw_qos_profile_system_default);
   // Create image sub
   sub_image_ = image_transport::create_camera_subscription(
     this, "image/image_raw",
